@@ -1,0 +1,290 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* This will push the footer to the bottom */
+    height: 100vh;
+    max-width: 1500px;
+    margin: 0 auto; /* Removed padding to allow sidebar images to touch the corners */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto; /* Center content horizontally */
+}
+
+.header {
+    display: flex;
+    flex-direction: column; /* Stack the logo and title vertically */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.logo-img {
+    width: 80px; /* Adjusted width */
+    height: auto;
+    margin-bottom: 10px; /* Space between logo image and title */
+}
+
+.logo {
+    font-size: 2rem; /* Adjusted font size */
+    color: #000;
+    margin: 0;
+}
+
+/* General styles applied before the media query */
+
+.logo-img {
+  width: 80px; /* Default width for larger screens */
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 2rem; /* Default font size for larger screens */
+  color: #000;
+  margin: 0;
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 768px) {
+  .logo-img {
+      width: 60px; /* Smaller width for small devices */
+      margin-bottom: 5px; /* Less space between logo and title */
+  }
+
+  .logo {
+      font-size: 1.5rem; /* Smaller font size for small devices */
+  }
+
+  .back-button {
+    width: 40px; /* Adjust the width of the back button for small devices */
+    height: auto; /* Keep the aspect ratio */
+    position: fixed;
+    top: 10px; /* Adjusted position to fit better in smaller screens */
+    right: 10px; /* Adjusted position for accessibility */
+    cursor: pointer;
+  } 
+
+  /* Adjust other elements as needed for small devices */
+  .header, .content, .wrapper {
+      padding: 0 15px; /* Add padding on the sides for small screens */
+  }
+
+  .back-button {
+      top: 10px; /* Adjust position for better fit */
+      right: 10px;
+  }
+
+  /* You can add other adjustments for small devices here */
+}
+
+
+
+
+.back-button {
+    position: fixed; 
+    right: 20px;    
+    top: 20px;  
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px; /* Push controls up a bit from the bottom */
+}
+
+
+.courseLevelButton {
+    padding: 10px 20px;
+    margin: 0 10px; /* Increased space between buttons */
+    border: 0px;
+    border-radius: 5px;
+    background-color: #F8CAD3;
+    color: #880720;
+    font-size: 1rem; /* Increased font size */
+}
+
+
+@media (max-width: 768px) {
+  .courseLevelButton {
+      padding: 8px 10px; /* Smaller padding for smaller screens */
+      font-size: 0.875rem; /* Smaller font size for smaller screens */
+  }
+}
+/* Directly targeting the <p> element, you can add a class or use a more specific selector if needed */
+p {
+  text-align: center;
+  margin: 20px 0; /* Adjust spacing as needed */
+}
+
+
+
+/* Position sidebar images at the bottom corners */
+.sidebar.left {
+    position: absolute;
+    left: 20px; /* Spacing from the left edge */
+    bottom: 20px; /* Spacing from the bottom */
+}
+
+.sidebar.right {
+    position: absolute;
+    right: 20px; /* Spacing from the right edge */
+    bottom: 20px; /* Spacing from the bottom */
+}
+
+.sidebar-img {
+    height: 150px; /* Adjusted height for visibility */
+}
+
+
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: flex;
+    justify-content: center; /* Center buttons */
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  
+  
+  
+  .dropDownButton {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #F8CAD3;
+    border: none;
+    color: #880720;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    width: 150px;
+  
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
+  
+  
+  .dropDownButton span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .dropDownButton span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .dropDownButton:hover span {
+    padding-right: 25px;
+  }
+  
+  .dropDownButton:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  
+  .dropdown-content {
+    height: 40vh;
+    overflow-y: scroll;
+  }
+
+#dataDisplay {
+    margin: center;
+text-align: center;
+}  
+
+
+
+/* Center text for dynamically added titles and list items */
+.theList, #class-list-container {
+  text-align: center;
+}
+
+/* If theList items are block elements and you want them centered within their container */
+.theList {
+  display: block; /* Use flex if they're containers of more items */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Centering items within .theList if they are flex containers */
+.theList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* For any additional specific IDs or classes used by dynamically added content */
+#dataDisplay, .specific-class-for-dynamic-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .sidebar-img {
+      display: none;
+  }
+}
+
+.pStyle{
+  padding-left: 350px; 
+  padding-right: 350px;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+    .pStyle {
+      text-align: center; 
+      padding-left: 0px; 
+      padding-right: 0px;
+  }
+}

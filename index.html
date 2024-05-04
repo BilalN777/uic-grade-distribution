@@ -1,193 +1,77 @@
 <!DOCTYPE html>
-<html>
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="Grade distribution data for UIC courses">
-      <meta name="keywords" content="UIC, grades, distribution, courses">
-      <meta name="author" content="University of Illinois at Chicago">
-      <title>UIC Grade Distribution</title>
-      <link href="style.css" rel="stylesheet" type="text/css" />
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-      <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
-      <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
-     <link rel="manifest" href="/manifest.webmanifest">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-   </head>
-   <body>
-      <div class="mdc-tab-bar" role="tablist">
-         <div class="mdc-tab-scroller">
-            <div class="mdc-tab-scroller__scroll-area">
-               <div class="mdc-tab-scroller__scroll-content">
-               </div>
-            </div>
-         </div>
-      </div>
-      <script src="script.js"></script>
-
-         <header class="mdc-top-app-bar" style="background-color: #09adc3">
-            <div class="mdc-top-app-bar__row">
-              <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <span class="mdc-top-app-bar__title" onclick="grades()">UIC Grade Distribution</span>
-              </section>
-              <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-               <button onclick="showDialog(`I did this for a course project. I work on this site in my free time, so I will keep trying to make it better! Please let me know if there is anything you want to see. Contact me <a href='http://adamnimer.com' onclick='event.preventDefault(); window.open('http://adamnimer.com');>here</a>.`, 'Go Back')" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" id="heart" aria-label="Favorite">favorite</button>
-
-
-
-                <button  onclick="showDialog(`Subjects Include: ACTG, ANAT, ANTH, AHS, ARAB, ARCH, ART, AH, BCMG, BIOS, BHIS, 
-                BME, BPS, BSTT, BLST, BA, CC, CST, CEES, CHE, CHEM, CHIN, CME, CL, COMM, CHSC, CS, CLJ, CI, DES, DLG, DHD, EAES, 
-                ECON, ED, EDPS, EPSY, ECE, ENGR, ENGL, ELSI, ENTR, FIN, FR, GWS, GEOG, GER, GLAS, GKA, GKM, GAMD, HIM, HEB, HNUR, 
-                HIST, HON, HN, HUM, IE, IDS, IT, IDEA, IPHS, ISA, INST, ITAL, JPN, JST, KN, KOR, LAT, LALS, LAS, LIB, LING, LCSL, 
-                LITH, MGMT, MKTG, MENG, MCS, MATH, MTHT, ME, PMMP, MIM, MILS, MOVI, MUSE, MUS, NAST, NATS, NS, NEUS, NURS, NUEL, 
-                OT, PATH, PSCI, PCOL, PHAR, PMPR, PSOP, PHIL, PT, PHYS, PHYB, POL, POLS, PORT, PSCH, PA, PUBH, PPOL, PPA, RES, 
-                RELS, RUSS, SLAV, SJ, SOC, SPAN, SPED, STAT, SABR, THTR, UPA, UPP, US`, 'Go Back')" class="material-icons mdc-top-app-bar__action-item mdc-icon-button" id="information" aria-label="Favorite">information</button>
-              </section>
-            </div>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VR48TNR"></script>
+        <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-PD5VR48TNR');
+        </script>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta name="keywords" content="UIC, grades, distribution, courses">
+        <meta name="author" content="University of Illinois at Chicago">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta property="og:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta property="og:image" content="https://uicgrades.com/uic-favicon.png">
+        <meta property="og:url" content="https://uicgrades.com">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta name="twitter:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta name="twitter:image" content="https://uicgrades.com/uic-favicon.png">
+        
+        <title>UIC Grade Distribution: Explore and Search Courses</title>
+        <link rel="icon" href="/uic-favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/frontPage.css?v=1.1">
+        <link href="css/style.css?v=1.2" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+     </head>
+<body>
+    <div class="wrapper">
+        <div class="content">
+            <header class="header">
+                <img src="svgs/cap.svg" alt="UIC Grade Distribution Logo" class="logo-img" />
+                <h1 class="logo">UIC Grade Distribution</h1>
+                <button class="info-button" id="infoBtn">Info</button>
             </header>
-      <main class="mdc-top-app-bar--fixed-adjust">
+
+            <div class="modal" id="infoModal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>This is a website created by Adam Nimer. I am a senior at UIC. You can contact me at adam@adamnimer.com</p>
+                </div>
+            </div>
+            
+            <main>
+                <div class="center-container">
+                    <h1 class="main-title">Plan your future!</h1>
+                    <p class="main-description">With UIC Grades, we provide a way to view all past semester grade distributions, and find easy courses within each major.</p>
+                    <div class="button-wrapper">
+                        <button class="main-button" id="gradeDistributions">Grade Distributions</button>
+                        <button class="main-button" id="findCourses">Find Easy Courses</button>                        
+                    </div>
+                </div>
             </main>
-     
-
-
-      <script type="text/javascript">
-         window.onload = function () { 
-             grades();
-         }
-      </script>
-
-         <div class="mdc-dialog">
-            <div class="mdc-dialog__container">
-               <div class="mdc-dialog__surface"
-                  role="alertdialog"
-                  aria-modal="true"
-                  aria-labelledby="my-dialog-title"
-                  aria-describedby="my-dialog-content">
-                  <div class="mdc-dialog__content" id="my-dialog-content">
-                  </div>
-                  <div class="mdc-dialog__actions">
-                     <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="cancel">
-                        <div class="mdc-button__ripple"></div>
-                        <span class="mdc-button__label"></span>
-                     </button>
-                  </div>
-               </div>
-            </div>
-            <div class="mdc-dialog__scrim"></div>
-         </div>
         </div>
-
-     
-     
-      <div id="grades" class="grades">
-                </br>
-                </br>
-         <div class="screen">
-            </br>
-            <!-- Directions -->
-            <figure>
-               <blockquote class="mdc-typography--headline5" id="directions">
-                  <p>Enter your desired subject abbreviation, 
-                     course number, and semester. The format looks like this: 'MATH' '210' 'SP22'.
-                    Click on the info button (top right corner) if you would like to view the different subjects to 
-                    choose from. </br>
-                  </p>
-               </blockquote>
-            </figure>
-            </br>
-            </br>
-            <!-- Subject input and datalist -->
-          <div class="form-floating">
-             <input type="text" class="form-control" placeholder="hello" id="subject" list="subject-list">
-             <label for="floatingTextarea">Subject</label>
-          </div>
-          <datalist id="subject-list"></datalist>
-          <!-- JavaScript to generate options -->
-          <script src="subjectSearch.js"></script>
-            <!-- Course Number button -->
-            <div class="form-floating">
-               <textarea class="form-control" placeholder="hello" id="course_num"></textarea>
-               <label for="floatingTextarea">Course Number</label>
-            </div>
-          <!-- Semester and year input and datalist -->
-          <div class="form-floating">
-             <input type="text" class="form-control" placeholder="hello" id="semester" list="semester-list">
-             <label for="floatingTextarea">Semester</label>
-          </div>
-          <datalist id="semester-list"></datalist>
-          <!-- JavaScript to generate options -->
-          <script src="semesterSearch.js"></script>
-            <!-- Fix spacing -->
-            </br>
-            </br>
-            </br>
-            </br>
-            <div>
-               <!-- Search button -->
-               <button onclick="search()" class="button" style="vertical-align:middle" ><span>Search</span></button>
-              <button onclick="courseSelection()" class="button" style="vertical-align:middle"><span>Find Easy Courses</span></button>
-            </div>
-            </br>   </br>  
-            <!-- Data chart -->
-            <div id="donutchart"></div>
-         </div>
+        <div class="main-image-container">
+            <img src="svgs/frontImage.svg" alt="Statistics illustration" class="main-image" />
         </div>
-
-
-
-     <div id="easiestCourses">
-
-       <div class="screen">
-            </br>
-           </br>
-
-            <!-- Directions -->
-            <figure>
-               <blockquote class="mdc-typography--headline5" id="directions">
-                  <p>Choose the subject, from the dropdown below, that you would like to examine. Then choose a course level. These results are based on the mean of grades for the past two semesters and will 
-                  be displayed from easiest to hardest. The way I calculated this gets rid of any outliers that would drastically bring up/down the average grade.
-                  (I am still working to improve this part of the site).
-                  </p>
-               </blockquote>
-            </figure>
-            </br>
-            </br>
-
-         
-       <h3 class="mdc-typography--headline5" id="directions">Find the easiest courses for a certain subject:</h3>
-
-
-    <div class="dropdown">
-      <button class="dropDownButton">Dropdown</button>
-      
-<!--       <button class="courseSelection">Course Level</button> -->
-<!--       <button class="dropDownButton">Dropdown</button> -->
-      <div class="dropdown-content" id="dataDisplay" style="vertical-align:middle">
-        <script src="dropDown.js"></script>
-      </div>
-
-      <button onclick="grades()" class="button" style="vertical-align:middle"><span>Back to Search</span></button>
-        </br>
-        </br>
-        <p>Choose your desired course level:</p>
-        <button onclick="filterByLevel(1)" class="courseLevelButton">100</button>
-        <button onclick="filterByLevel(2)" class="courseLevelButton">200</button>
-        <button onclick="filterByLevel(3)" class="courseLevelButton">300</button>
-        <button onclick="filterByLevel(4)" class="courseLevelButton">400</button>
-        <button onclick="filterByLevel(5)" class="courseLevelButton">500</button>
-        <button onclick="filterByLevel('NULL')" class="courseLevelButton">ALL</button>
-        </br>
-        </br>
-        </br>
-        
-        
-
     </div>
-        
-     </div>
-     </div>
-     
-   </body>
+    <script src="js/frontPage.js?=v1"></script>
+</body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VR48TNR"></script>
+        <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-PD5VR48TNR');
+        </script>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta name="keywords" content="UIC, grades, distribution, courses">
+        <meta name="author" content="University of Illinois at Chicago">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta property="og:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta property="og:image" content="https://uicgrades.com/uic-favicon.png">
+        <meta property="og:url" content="https://uicgrades.com">
+        <meta property="og:type" content="website">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta name="twitter:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta name="twitter:image" content="https://uicgrades.com/uic-favicon.png">
+        
+        <title>UIC Grade Distribution: Explore and Search Courses</title>
+        <link rel="icon" href="/uic-favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/findEasyCourses.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+     </head>
+     <body>
+        <div class="wrapper">
+            <!-- Sidebar Left -->
+            <div class="sidebar left">
+                <img src="svgs/book-boy.svg" alt="Open Book Icon" class="sidebar-img" />
+            </div>
+        
+            <!-- Content -->
+            <div class="content">
+                <header class="header">
+                    <img src="svgs/cap.svg" alt="UIC Grade Distribution Logo" class="logo-img" />
+                    <h1 class="logo">UIC Grade Distribution</h1>
+                    <img src="svgs/back.svg" alt="Go Back" class="back-button" id="goBack" onclick="goBack()" />
+                </header>
+
+                <h4 class="pStyle">
+                    Choose the subject, from the dropdown below, that you would like to examine. Then choose a course level. These results are based on the mean of grades for the past two semesters, (FA23 & SP23), and will be displayed from easiest to hardest. The way I calculated this gets rid of any outliers that would drastically bring up/down the average grade.
+                </h4>
+            </br>
+                  
+                <!-- Controls for Dropdown and Buttons -->
+                <div class="dropdown">
+                    <button class="dropDownButton">Dropdown</button>
+                    <div class="dropdown-content" id="dataDisplay" style="vertical-align:middle">
+                        <!-- Dropdown links will be populated by JavaScript -->
+                    </div>
+                </div>
+    
+                <div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <p>Choose your desired course level:</p>
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel(1)" class="courseLevelButton">100</button>
+                          </div>
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel(2)" class="courseLevelButton">200</button>
+                          </div>
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel(3)" class="courseLevelButton">300</button>
+                          </div>
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel(4)" class="courseLevelButton">400</button>
+                          </div>
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel(5)" class="courseLevelButton">500</button>
+                          </div>                                                    
+                          <div class="col-auto mb-2">
+                            <button onclick="filterByLevel('NULL')" class="courseLevelButton">ALL</button>
+                          </div>                              
+<!-- 
+                    <p>Choose your desired course level:</p>
+                    <button onclick="filterByLevel(1)" class="courseLevelButton">100</button>
+                    <button onclick="filterByLevel(2)" class="courseLevelButton">200</button>
+                    <button onclick="filterByLevel(3)" class="courseLevelButton">300</button>
+                    <button onclick="filterByLevel(4)" class="courseLevelButton">400</button>
+                    <button onclick="filterByLevel(5)" class="courseLevelButton">500</button>
+                    <button onclick="filterByLevel('NULL')" class="courseLevelButton">ALL</button> -->
+
+                <br/>
+                <div id="class-list-container">
+                    <!-- The list will be appended here by JavaScript -->
+                </div>
+            </div>
+            <script src="js/dropDown.js"></script>
+        
+            <!-- Sidebar Right -->
+            <div class="sidebar right">
+                <img src="svgs/bookshelf.svg" alt="Bookshelf Icon" class="sidebar-img" />
+            </div>
+        </div>
+    
+        <!-- JavaScript Files -->
+        <!-- Make sure to include any other scripts needed for functionality -->
+    
+    </body>
+    </html>

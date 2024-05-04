@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PD5VR48TNR"></script>
+        <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', 'G-PD5VR48TNR');
+        </script>
+        
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta name="keywords" content="UIC, grades, distribution, courses">
+        <meta name="author" content="University of Illinois at Chicago">
+        
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta property="og:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        <meta property="og:type" content="https://uicgrades.com">
+        
+        <!-- Twitter Card Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="UIC Grade Distribution: Explore and Search Courses">
+        <meta name="twitter:description" content="Explore grade distribution data for UIC courses to find the easiest courses, and search by subject, course number, and semester.">
+        
+        <title>UIC Grade Distribution: Explore and Search Courses</title>
+        <link rel="icon" href="/uic-favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/gradeDistributions.css">
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="manifest" href="/manifest.webmanifest">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <div class="content">
+                <header class="header">
+                    <img src="svgs/cap.svg" alt="UIC Grade Distribution Logo" class="logo-img" />
+                    <h1 class="logo">UIC Grade Distribution</h1>
+                    <img src="svgs/back.svg" alt="Go Back" class="back-button" id="goBack" onclick="goBack()" />
+                </header>
+
+            <div id="grades" class="grades">
+            <div class="screen">
+                <figure>
+                    <blockquote class="mdc-typography--headline5" id="directions">
+                    <p>Enter your desired subject abbreviation, 
+                        course number, and semester. The format looks like this: 'MATH' '210' 'SP22'.
+                        </br>FALL 2023 Grades Now Available!</br> 
+                    </p>
+                    </blockquote>
+                </figure>
+
+
+                <!-- Subject input and datalist -->
+                <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="hello" id="subject" list="subject-list">
+                    <label for="floatingTextarea">Subject</label>
+                </div>
+                <datalist id="subject-list"></datalist>
+                <!-- JavaScript to generate options -->
+                <script src="js/subjectSearch.js"></script>
+                <!-- Course Number button -->
+                <div class="form-floating">
+                    <textarea class="form-control" placeholder="hello" id="course_num"></textarea>
+                    <label for="floatingTextarea">Course Number</label>
+                </div>
+                <!-- Semester and year input and datalist -->
+                <div class="form-floating">
+                    <input type="text" class="form-control" placeholder="hello" id="semester" list="semester-list">
+                    <label for="floatingTextarea">Semester</label>
+                </div>
+                <datalist id="semester-list"></datalist>
+                <!-- JavaScript to generate options -->
+                <script src="js/semesterSearch.js"></script>             
+                </div>
+                <!-- Search button -->
+                <div class="search-button-container">
+                    <button onclick="search()" class="main-button"><span>Search</span></button>
+                </div>
+                </div>
+
+                <div id="class-title-container">
+                    <!-- Dynamically generated class list will go here -->
+                  </div>
+
+                <div id="class-list-container">
+                    <!-- Dynamically generated class list will go here -->
+                  </div>
+
+                <!-- Data chart -->
+                <!-- Custom Modal -->
+                <div id="customModal" class="custom-modal">
+                    <div class="custom-modal-content">
+                    <span class="custom-close-button" onclick="closeModal()">&times;</span>
+                    <h2>Grade Distribution Chart</h2>
+                    <div id="donutchart">
+                        <!-- Donut chart will be rendered here -->
+                    </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="gradeDistributions-image-container">
+                <img src="svgs/sitting.svg" alt="Statistics illustration" class="gradeDistributions-image" />
+            </div>
+        </div>
+        <script src="js/gradeDistributions.js"></script>   
+        <script src="js/script.js"></script>
+    </body>
+</html>

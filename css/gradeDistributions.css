@@ -1,0 +1,374 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box; 
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100vh;
+    max-width: 1500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.logo-img {
+    width: 50px; 
+    height: auto; 
+    margin-right: 10px; 
+}
+
+.logo {
+    font-size: 34px;
+    color: #000;
+    margin: 0; 
+}
+
+.back-button {
+    position: fixed; 
+    right: 20px;    
+    top: 20px;  
+    cursor: pointer;
+}
+
+/* Media Query for Small Devices */
+@media (max-width: 768px) {
+  .logo-img {
+      width: 60px; /* Smaller width for small devices */
+      margin-bottom: 5px; /* Less space between logo and title */
+  }
+
+  .logo {
+      font-size: 1.5rem; /* Smaller font size for small devices */
+  }
+
+  .back-button {
+    width: 70px; /* Adjust the width of the back button for small devices */
+    height: auto; /* Keep the aspect ratio */
+    position: fixed;
+    top: 10px; /* Adjusted position to fit better in smaller screens */
+    right: 10px; /* Adjusted position for accessibility */
+    cursor: pointer;
+  } 
+
+  /* Adjust other elements as needed for small devices */
+  .header, .content, .wrapper {
+      padding: 0 15px; /* Add padding on the sides for small screens */
+  }
+
+  .back-button {
+      top: 10px; /* Adjust position for better fit */
+      right: 10px;
+  }
+
+  /* You can add other adjustments for small devices here */
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    z-index: 1000;
+}
+
+.main-button {
+    background-color: #F8CAD3;
+    color: #880720;
+    border: none;
+    padding: 15px 20px;
+    margin: 0 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 15px; 
+    z-index: 1;
+}
+
+
+.main-button:hover {
+    background-color: #efb3bf;
+    color: white;
+}
+
+#class-list-container {
+    width: 100%;
+    z-index: 1;
+  }
+
+
+#class-title-container {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px; 
+}
+
+.select-message {
+  font-size: 18px; 
+  color: #333; 
+  margin: 10px 0; 
+}
+  
+.instructor-container {
+  background-color: #F8CAD3; 
+  color: #880720;
+  display: inline-block; 
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 10px;
+  cursor: pointer; 
+  transition: transform 0.3s ease; 
+}
+
+.instructor-container:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+}
+
+@media (max-width: 768px) {
+  .instructor-container {
+    display: block; 
+    margin: 10px auto; 
+  }
+}
+
+.search-button-container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  height: 100px; 
+  width: 100%;
+}
+
+
+
+.custom-modal {
+  display: none; 
+  position: fixed; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.custom-modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  max-width: 600px;
+  margin: auto; 
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  overflow: hidden;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px; 
+  height: auto;
+  aspect-ratio: 1 / 1;
+  z-index: 3; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  flex-direction: column; 
+  border-radius: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+  .custom-modal-content {
+      width: 95%;
+      padding: 10px; 
+  }
+}
+
+#donutchart {
+  width: 100%; 
+  height: auto; 
+}
+
+
+.custom-modal-header {
+  display: flex; /* Use flex to align the close button */
+  justify-content: flex-end; /* Aligns the close button to the right */
+  width: 100%; /* Ensures the header spans the full width of the modal */
+  padding: 10px; /* Provides some space around the content */
+}
+
+.custom-close-button {
+  font-size: 24px; /* Adjust the size as needed */
+  font-weight: bold; /* Optional: makes the 'X' bolder */
+  cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+  border: none; /* Removes any border */
+  background: none; /* Removes any background */
+  color: #AAA; /* Set the color of the 'X' (adjust as needed) */
+  margin-left: auto; /* This pushes the button to the right */
+}
+
+.custom-close-button:hover,
+.custom-close-button:focus {
+  color: black; /* Changes color on hover/focus to indicate interactivity */
+}
+
+#donutchart {
+    width: 80%; 
+    height: 80%;
+    margin: auto; 
+}
+
+@media (max-width: 768px) {
+    #donutchart {
+        width: 80%; 
+        height: 300px; 
+    }
+
+    .custom-modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 480px) {
+    #donutchart {
+        height: 250px; 
+    }
+}
+
+
+@media (max-width: 850px) {
+    .wrapper {
+      flex-direction: column; 
+      align-items: center;
+      padding: 10px;
+    }
+  
+    .content,
+    .header {
+      width: 100%; 
+    }
+  
+    .logo-img {
+      width: 40px;
+    }
+  
+    .logo {
+      font-size: 24px;
+    }
+  
+    .back-button {
+      right: 10px; 
+      top: 10px;
+    }
+  
+    .main-button {
+      padding: 10px 15px; 
+      font-size: 16px;
+    }
+  
+    .instructor-container {
+      margin: 10px; 
+    }
+  
+    .custom-modal-content {
+      width: 95%; 
+      margin-top: 5%; 
+      padding: 10px;
+    }
+  
+    #donutchart {
+      width: 100%; 
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+  }
+  
+  @media (max-width: 480px) {
+  }
+  
+  @media (max-width: 320px) {
+  }
+  
+  .gradeDistributions-image-container {
+    position: fixed; 
+    right: 0;       
+    bottom: 0;
+    z-index: 0;
+  }
+
+  @media (max-width: 768px) {
+    .gradeDistributions-image-container {
+      display: none;
+    }
+}  
+
+@media (max-width: 600px) {
+.custom-modal-content {
+  /* Reset any inherited or previously set positioning */
+  position: fixed; /* Use fixed to keep the modal in place even when scrolling */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto; /* Adjust based on content width, with max-width to constrain it */
+  max-width: 90%; /* Prevent modal from being too wide on small screens */
+  padding: 20px;
+  background: #fff; /* Adjust modal background as needed */
+  border-radius: 5px; /* Optional: Adds rounded corners to the modal */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: Adds a subtle shadow for depth */
+  z-index: 1050; /* Ensure it sits above other content */
+}
+
+.custom-modal {
+  display: none; /* Keep hidden until needed */
+  position: fixed; /* Fixed to viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); /* Semi-transparent background */
+  z-index: 1040; /* Below modal content but above other items */
+}
+
+  .custom-modal-content {
+    width: 80%; /* Adjust for very small screens */
+    padding: 10px; /* Adjust padding to ensure content fits well */
+  }
+}
+
+#donutchart {
+  margin-left: 70px; 
+}
+
+@media (max-width: 768px) {
+  #donutchart {
+    margin-left: 20px; 
+  }
+}
