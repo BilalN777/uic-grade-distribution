@@ -78,6 +78,24 @@ main {
     margin: 20px 0;
 }
 
+@media (max-width: 500px) {
+    .button-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .button-wrapper button {
+        flex: 1 1 50%; /* Make the first two buttons take up half the line each */
+        margin: 5px; /* Small margin for spacing */
+    }
+    .button-wrapper a {
+        flex: 0 0 100%; /* Force the 'Leave Feedback' button to take up the full line */
+        text-align: center; /* Center the text inside the link */
+        margin: 5px;
+    }
+}
+
+
 .main-button {
     background-color: #F8CAD3;
     color: #880720;
@@ -109,7 +127,7 @@ main {
     height: auto;
 }
 
-@media (max-width: 768px) {
+@media (max-width:850px) {
     .wrapper {
         flex-direction: column;
     }
@@ -139,7 +157,7 @@ main {
 }
 
 
-@media (max-width: 500px) {
+@media (max-width: 517px) {
     .main-image-container {
         max-width: 75%;
         max-height: 75%;
@@ -222,4 +240,112 @@ main {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+
+/* Contact Form */
+/* section.contact-section {
+    padding: 70px 0;
+} */
+
+@media(max-width: 1200px) {
+    section.contact-section {
+        padding: 40px 0;
+    }
+}
+
+@media(max-width: 768px) {
+    section.contact-section {
+        padding: 20px 0;
+    }
+    .contact-section .row {
+        grid-template-columns: 1fr; 
+    }
+    .left-grid p, .contact-text {
+        font-size: 15px; 
+        line-height: 23px;
+        padding-bottom: 35px;
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-1 * var(--bs-gutter-x) / 2);
+}
+
+.left-grid, .right-grid {
+    width: 50%; 
+}
+
+@media(max-width: 768px) {
+    .left-grid, .right-grid {
+        width: 100%;
+    }
+    .contact-header, .contact-text {
+        padding-left: 10px; 
+    }
+}
+
+.contact-form form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.contact-form form .form-group {
+    width: 50%; 
+    padding: 0 15px 20px;
+}
+
+.contact-form form .form-group input, 
+.contact-form form .form-group textarea {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 0.5px solid #2A2E37;
+}
+
+.contact-form form .form-group textarea {
+    resize: none;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+@media(max-width: 768px) {
+    .contact-form form .form-group {
+        width: 100%;
+        padding: 0 5px 20px;
+    }
+    .contact-form form {
+        justify-content: flex-start; 
+    }
+}
+
+#successMessage, #fillAllFieldsMessage {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#fillAllFieldsMessage {
+    background-color: #f44336; 
 }
