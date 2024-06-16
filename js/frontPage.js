@@ -8,6 +8,11 @@ document.getElementById('findCourses').addEventListener('click', function() {
     window.location.href = 'findEasyCourses.html';
 });
 
+document.getElementById('profSearch').addEventListener('click', function() {
+    // Redirect to the prof search page
+    window.location.href = 'profSearch.html';
+});
+
 // Get the modal
 var modal = document.getElementById("infoModal");
 var btn = document.getElementById("infoBtn");

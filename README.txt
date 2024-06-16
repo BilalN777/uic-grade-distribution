@@ -1,15 +1,9 @@
 
-INFO: 
-1.
-2.
-3.
+Updates 06/16/2024: 
+1. Added search by professor, which allows you to view past courses and distributions for specific prof.
+2. Fixed some styling.
 
-
-
-IDEAS TO IMPLEMENT:
-
-1. Update to use grid instead of float.
-
-
-
-
+Past updates:
+05/04/2024:
+1. Added feedback form.
+2. css fixes.
