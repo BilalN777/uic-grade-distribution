@@ -69,6 +69,7 @@ main {
     font-size: 22px;
     color: #666;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .button-wrapper {
@@ -78,19 +79,19 @@ main {
     margin: 20px 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
     .button-wrapper {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
     }
     .button-wrapper button {
-        flex: 1 1 50%; /* Make the first two buttons take up half the line each */
-        margin: 5px; /* Small margin for spacing */
+        flex: 1 1 50%; 
+        margin: 5px; 
     }
     .button-wrapper a {
-        flex: 0 0 100%; /* Force the 'Leave Feedback' button to take up the full line */
-        text-align: center; /* Center the text inside the link */
+        flex: 0 0 100%; 
+        text-align: center; 
         margin: 5px;
     }
 }
@@ -220,6 +221,11 @@ main {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); 
 }
 
+.modal-text {
+    text-align: center;
+    padding-top: 10%;
+}
+
 @media (min-width: 850px) {
     .modal-content {
         width: 25% !important;
@@ -242,6 +248,9 @@ main {
     cursor: pointer;
 }
 
+.line {
+    border-top: 10px solid #ebebeb;
+  }
 
 /* Contact Form */
 /* section.contact-section {
@@ -288,6 +297,10 @@ main {
 
 .left-grid, .right-grid {
     width: 50%; 
+}
+
+.contact-header {
+    padding-top: 1%;
 }
 
 @media(max-width: 768px) {
